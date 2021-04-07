@@ -1,10 +1,16 @@
 import React from 'react';
+import '../../App.css'
+import Nav from '../../Nav'
+
 
 function Movies() {
     return (
-        <div>
-            <h1>Movies</h1>
-        </div>
+        <React.Fragment>
+            <div className="title-container">
+                <h1 className="text">Movies</h1>
+            </div>
+            <Nav />
+        </React.Fragment>
     )
 }
 

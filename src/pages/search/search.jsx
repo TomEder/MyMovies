@@ -1,10 +1,17 @@
 import React from 'react';
+import Nav from '../../Nav'
 
 function Search() {
     return (
-        <div>
-            <h1>Search</h1>
-        </div>
+        <React.Fragment>
+            <div className="search-container">
+                <h1 className="text">Search</h1>
+                <form action="">
+                    <input type="text" />
+                </form>
+            </div>
+            <Nav />
+        </React.Fragment>
     )
 }
 

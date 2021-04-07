@@ -9,6 +9,11 @@
   margin-top: 70px;
 }
 
+.search-container{
+  width: 100%;
+  margin-top: 70px;
+}
+
 .text {
   color: white;
 }
@@ -18,5 +23,13 @@ nav{
   position: fixed;
   align-self: flex-end;
   min-height: 10vh;
-  background-color: red;
+  background-color: #d67a7a;
+}
+
+.NavLinks{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
 }
