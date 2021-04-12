@@ -1,6 +1,5 @@
 import React from 'react';
-import Nav from '../../Nav'
-
+import Nav from '../../components/Nav'
 
 function Settings() {
     return (
