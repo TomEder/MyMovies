@@ -12,7 +12,6 @@
 
 .search-container{
   width: 100%;
-  
 }
 
 .movie{
@@ -35,7 +34,8 @@
   display: flex;
   font-size: 10px;
   justify-content: space-between;
-  padding: 0.5rem
+  padding: 0.5rem;
+  text-decoration: none!important;
 }
 
 .movie-info h3{
@@ -51,6 +51,7 @@
 
 .text {
   color: white;
+  text-decoration: none !important;
 }
 
 nav{
@@ -93,14 +94,14 @@ nav{
   right: 0;
   overflow: auto;
   max-height: 100%;
-  transform: translateY(102%);
+  transform: translateY(100%);
   transition: transform 0.3s ease-in-out;
 }
+
 
 .movie:hover .movie-over{
   transform: translateY(0%);
 }
-
 
 
 .search {
@@ -110,7 +111,6 @@ nav{
   font-size: 1.2rem;
   border-radius: 50px;
   padding: 0.5rem 1.5rem;
-
 }
 
 .search:focus{
@@ -139,4 +139,104 @@ nav{
 .link-image{
   width: 32px;
   height: 30px;
+}
+
+.ListButton{
+  position: relative;
+}
+
+.suggestion-info{
+   display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  padding: 0.5rem;
+  text-decoration: none!important;
+}
+
+.suggestions-container{
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  position: relative;
+  margin: 0rem 3rem;
+  height: 190px;
+  z-index: 99;
+  overflow-x: scroll;
+}
+
+.suggestion{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border: 1px solid #522424;
+  font-size: 1.1rem;
+  height: fit-content;
+  padding: 0.5rem 1.5rem;
+
+}
+
+.suggestion-img{
+  height: 40px;
+  width: 25px;
+  align-self: center;
+}
+
+.suggestion-text{
+  color: black;
+  margin: 5px;
+}
+
+.lists-container{
+ border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  z-index: 1  ;
+}
+
+.sug-tag{
+  padding: 0.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+  height: 13px;
+  align-self: center;
+}
+
+.sug-tag.green{
+ color: rgb(3, 199, 3);
+}
+.sug-tag.orange{
+  color: orange
+}
+.sug-tag.red{
+  color: red;
+}
+
+.signupContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.signInput{
+  background-color: transparent;
+  border: 2px solid #522424;
+  color:white;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  margin-top: 5px;
+}
+
+.signupButton{
+  margin-top: 5px;
+  background-color: transparent;
+  border: 2px solid #ca1919;
+  color:white;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
 }

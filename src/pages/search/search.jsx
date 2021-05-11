@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../../components/Nav'
-import Movie from '../../components/Movie'
-import Show from '../../components/show'
+import Suggestion from '../../components/suggestion'
+import Movie from '../../components/Movie.jsx'
+
 import '../../App.css'
 
 const api_key = 'cd35599d70a7310e8f56c72e22d7e0d9&page=1'
@@ -10,15 +11,28 @@ const FEATURED_MOVIES_API = `https://api.themoviedb.org/3/discover/movie?sort_by
 const SEARCH_MOVIES_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`
 const FEATURED_TV_API = `https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&page=1`
 const SEARCH_SHOWS_API = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=`
+const CREATE_LIST_API = `https://api.themoviedb.org/3/list?api_key=${api_key}&session_id=1`
+
+export const initial_state = {
+    featuredMovies: {},
+}
 
 function Search() {
     const [movies, setMovies] = useState([]);
     const [shows, setShows] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [watchList, setWatchList] = useState([{
+        title: "Avengers: Endgame",
+        vote_average: 8.3,
+        overview: "After the devastating events of Avengers: Infinity War",
+        poster_path: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+        id: 299534
+    },])
+
 
     useEffect(() => {
-        getMovies(FEATURED_MOVIES_API)
-        getShows(FEATURED_TV_API)
+        /* getMovies(FEATURED_MOVIES_API)
+        getShows(FEATURED_TV_API) */
     }, []);
 
     const getMovies = (API) => {
@@ -42,7 +56,6 @@ function Search() {
         if (searchTerm) {
             getMovies(SEARCH_MOVIES_API + searchTerm);
             getShows(SEARCH_SHOWS_API + searchTerm);
-            setSearchTerm('');
         }
     };
 
@@ -54,7 +67,7 @@ function Search() {
         <React.Fragment>
             <div className="title-container">
                 <h1 className="text">Discover</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="search-container">
                     <input
                         className="search"
                         type="search"
@@ -62,21 +75,20 @@ function Search() {
                         value={searchTerm}
                         onChange={handleChange} />
                 </form>
-                <div className="movie-container">
-                    <div className="title-container">
-                        <h2 className="text">Movies</h2>
-                    </div>
+                {<div className="suggestions-container">
                     {movies.length > 0 && movies.map((movie) => (
-                        <Movie key={movie.id} {...movie} />
+                        <Suggestion key={movie.id} {...movie} {...watchList}>
+                        </Suggestion>
                     ))}
-                </div>
-                <div className="movie-container">
-                    <div className="title-container">
-                        <h2 className="text">TV</h2>
-                    </div>
-                    {shows.length > 0 && shows.map((show) => (
-                        <Show key={show.id} {...show} />
-                    ))}
+                </div>}
+                <div className="lists-container">
+                    <h2 className="text">Movies</h2>
+                    <ul>
+                        {watchList.length > 0 && watchList.map((listItem) => (
+                            <Movie key={listItem.id} {...listItem} />
+                        ))}
+                    </ul>
+                    <h2 className="text">TV</h2>
                 </div>
             </div>
             <Nav />
